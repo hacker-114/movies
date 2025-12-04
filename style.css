@@ -5,43 +5,77 @@
 }
 
 body {
-    background: #0f0f1a;
+    background: #000;
     color: #fff;
     font-family: 'Montserrat', 'Arial', sans-serif;
     min-height: 100vh;
-    background-image: radial-gradient(circle at top, #1a1a2e 0%, #0f0f1a 80%);
+    background: linear-gradient(135deg, #1a0000 0%, #000 50%, #1a0000 100%);
 }
 
 header {
     text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(to bottom, rgba(20,20,40,0.9), transparent);
+    padding: 60px 20px 40px;
+    position: relative;
 }
 
 h1 {
-    font-size: 4.5rem;
-    font-weight: 800;
-    letter-spacing: 8px;
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: 10px;
     text-transform: uppercase;
-    background: linear-gradient(90deg, #00d4ff, #ff00aa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    color: #ff0033;
+    text-shadow: 0 0 20px #ff0033, 0 0 40px #ff0033;
 }
 
 .subtitle {
     font-size: 1.4rem;
     margin-top: 10px;
-    opacity: 0.8;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
+    color: #ff3366;
+}
+
+/* Search Bar */
+.search-container {
+    max-width: 600px;
+    margin: 30px auto;
+    position: relative;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 18px 60px 18px 50px;
+    font-size: 1.2rem;
+    background: rgba(20, 0, 0, 0.9);
+    border: 2px solid #ff0033;
+    border-radius: 50px;
+    color: white;
+    outline: none;
+    box-shadow: 0 0 20px rgba(255, 0, 51, 0.4);
+    transition: all 0.3s;
+}
+
+#searchInput:focus {
+    border-color: #ff3366;
+    box-shadow: 0 0 30px rgba(255, 0, 51, 0.7);
+    background: #111;
+}
+
+.search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ff0033;
+    font-size: 1.4rem;
+    pointer-events: none;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 40px auto;
     padding: 0 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
@@ -49,14 +83,16 @@ h1 {
     position: relative;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 25px rgba(255, 0, 51, 0.3);
     transition: all 0.4s ease;
     cursor: pointer;
+    border: 1px solid #330000;
 }
 
 .movie-card:hover {
-    transform: translateY(-15px) scale(1.03);
-    box-shadow: 0 20px 50px rgba(0, 212, 255, 0.3);
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(255, 0, 51, 0.6);
+    border-color: #ff0033;
 }
 
 .movie-card img {
@@ -67,8 +103,8 @@ h1 {
 }
 
 .movie-card:hover img {
-    transform: scale(1.1);
-    filter: brightness(0.7);
+    transform: scale(1.12);
+    filter: brightness(0.6) contrast(1.2);
 }
 
 .overlay {
@@ -76,34 +112,40 @@ h1 {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.9));
-    padding: 40px 20px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.95));
+    padding: 50px 20px 20px;
     text-align: center;
 }
 
 .movie-title {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 1.9rem;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 2px;
+    color: #ff0033;
+    text-shadow: 0 0 15px #ff0033;
 }
 
-/* Individual movie page */
+/* Hide filtered out movies */
+.hidden {
+    display: none !important;
+}
+
+/* Movie Page */
 .movie-page {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 40px 20px;
+    background: #000;
 }
 
 .back-btn {
     position: fixed;
     top: 20px;
     left: 20px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 0, 51, 0.2);
     color: white;
-    padding: 12px 24px;
+    padding: 12px 28px;
+    border: 2px solid #ff0033;
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
@@ -113,26 +155,29 @@ h1 {
 }
 
 .back-btn:hover {
-    background: #00d4ff;
+    background: #ff0033;
+    box-shadow: 0 0 20px #ff0033;
     transform: scale(1.1);
 }
 
 .video-container {
     width: 100%;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 80px auto 40px;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 40px rgba(255, 0, 51, 0.5);
+    border: 2px solid #ff0033;
 }
 
 .video-container iframe {
     width: 100%;
-    height: 600px;
+    height: 650px;
     border: none;
 }
 
 @media (max-width: 768px) {
-    h1 { font-size: 3rem; }
+    h1 { font-size: 3.2rem; letter-spacing: 5px; }
     .video-container iframe { height: 400px; }
+    #searchInput { padding: 16px 50px; }
 }

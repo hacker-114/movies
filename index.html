@@ -4,26 +4,22 @@
   <meta charset="UTF-8">
   <title>VTV Movie Hub</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Google Font for cinematic vibe -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Top Navigation -->
   <header>
     <nav>
       <div class="logo">VTV</div>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">TV Shows</a></li>
-        <li><a href="#">Movies</a></li>
-        <li><a href="#">New & Popular</a></li>
-        <li><a href="#">My List</a></li>
-        <li><a href="#">Browse by Languages</a></li>
-      </ul>
-      <div class="nav-icons">
-        <input type="text" placeholder="Search...">
-        <span class="icon">🔔</span>
+      <div class="nav-search">
+        <input type="text" id="searchInput" placeholder="Search movies...">
+        <button class="search-btn">🔍</button>
       </div>
     </nav>
   </header>
 
+  <!-- Featured Section -->
   <section class="featured">
     <h2>One Battle After Another</h2>
     <p>Washed-up revolutionary Bob exists in a state of stoned paranoia, surviving off-grid with his spirited, self-reliant daughter, Willa. When his evil nemesis resurfaces after 16 years and she goes missing, the former radical scrambles to find her, father and daughter both battling the consequences of his past.</p>
@@ -33,6 +29,7 @@
     </div>
   </section>
 
+  <!-- Trending Movies Grid -->
   <section class="trending">
     <h3>Trending Now</h3>
     <div class="movie-grid">
@@ -62,5 +59,29 @@
       </div>
     </div>
   </section>
+
+  <!-- Live Search Script -->
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const movieCards = document.querySelectorAll('.movie-card');
+
+    function filterMovies() {
+      const query = searchInput.value.toLowerCase();
+      movieCards.forEach(card => {
+        const title = card.querySelector('span').textContent.toLowerCase();
+        if (title.includes(query)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Filter as you type
+    searchInput.addEventListener('input', filterMovies);
+
+    // Also filter when clicking the search button
+    document.querySelector('.search-btn').addEventListener('click', filterMovies);
+  </script>
 </body>
 </html>

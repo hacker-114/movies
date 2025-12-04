@@ -11,6 +11,7 @@ header nav {
   align-items: center;
   background-color: #111;
   padding: 10px 20px;
+  font-family: 'Oswald', sans-serif; /* cinematic font */
 }
 
 .logo {
@@ -19,29 +20,40 @@ header nav {
   color: #e50914;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.nav-icons {
+.nav-search {
   display: flex;
   align-items: center;
-  gap: 10px;
+  background: #222;
+  border-radius: 20px;
+  padding: 5px 10px;
 }
 
-.nav-icons input {
-  padding: 5px;
-  background: #222;
+.nav-search input {
   border: none;
+  background: transparent;
   color: #fff;
+  padding: 8px;
+  outline: none;
+  width: 220px;
+  font-size: 14px;
+}
+
+.nav-search input::placeholder {
+  color: #aaa;
+}
+
+.search-btn {
+  border: none;
+  background: #e50914;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-btn:hover {
+  background: #f6121d;
 }
 
 .featured {

@@ -10,37 +10,60 @@
 <body>
     <header>
         <h1>Hacker114</h1>
-        <p class="subtitle">Exclusive · 4K · No Ads</p>
+        <p class="subtitle">Movies · Shows · Anime</p>
+
+        <div class="search-container">
+            <span class="search-icon"></span>
+            <input type="text" id="searchInput" placeholder="Search movies..." autocomplete="off">
+        </div>
     </header>
 
-    <div class="container">
-        <a href="movie-interstellar.html" class="movie-card">
+    <div class="container" id="movieContainer">
+        <a href="movie-interstellar.html" class="movie-card" data-title="interstellar">
             <img src="img/interstellar.png" alt="Interstellar">
             <div class="overlay">
                 <div class="movie-title">Interstellar</div>
             </div>
         </a>
 
-        <a href="movie-dune.html" class="movie-card">
+        <a href="movie-dune.html" class="movie-card" data-title="dune">
             <img src="img/dune.png" alt="Dune">
             <div class="overlay">
                 <div class="movie-title">Dune</div>
             </div>
         </a>
 
-        <a href="movie-inception.html" class="movie-card">
+        <a href="movie-inception.html" class="movie-card" data-title="inception">
             <img src="img/inception.png" alt="Inception">
             <div class="overlay">
                 <div class="movie-title">Inception</div>
             </div>
         </a>
 
-        <a href="movie-bladerunner.html" class="movie-card">
+        <a href="movie-bladerunner.html" class="movie-card" data-title="bladerunner 2049 blade runner">
             <img src="img/bladerunner.png" alt="Blade Runner 2049">
             <div class="overlay">
                 <div class="movie-title">Blade Runner 2049</div>
             </div>
         </a>
     </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const movieCards = document.querySelectorAll('.movie-card');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase().trim();
+
+            movieCards.forEach(card => {
+                const title = card.getAttribute('data-title');
+                if (title.includes(query)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

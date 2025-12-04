@@ -1,87 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>VTV Movie Hub</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Google Font for cinematic vibe -->
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker114 | Rebel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Top Navigation -->
-  <header>
-    <nav>
-      <div class="logo">VTV</div>
-      <div class="nav-search">
-        <input type="text" id="searchInput" placeholder="Search movies...">
-        <button class="search-btn">🔍</button>
-      </div>
-    </nav>
-  </header>
+    <header>
+        <h1>Hacker114</h1>
+        <p class="subtitle">Exclusive · 4K · No Ads</p>
+    </header>
 
-  <!-- Featured Section -->
-  <section class="featured">
-    <h2>One Battle After Another</h2>
-    <p>Washed-up revolutionary Bob exists in a state of stoned paranoia, surviving off-grid with his spirited, self-reliant daughter, Willa. When his evil nemesis resurfaces after 16 years and she goes missing, the former radical scrambles to find her, father and daughter both battling the consequences of his past.</p>
-    <div class="buttons">
-      <a href="movie-one-battle.html" class="play">▶ Play</a>
-      <a href="#" class="info">ℹ More Info</a>
+    <div class="container">
+        <a href="movie-interstellar.html" class="movie-card">
+            <img src="img/interstellar.png" alt="Interstellar">
+            <div class="overlay">
+                <div class="movie-title">Interstellar</div>
+            </div>
+        </a>
+
+        <a href="movie-dune.html" class="movie-card">
+            <img src="img/dune.png" alt="Dune">
+            <div class="overlay">
+                <div class="movie-title">Dune</div>
+            </div>
+        </a>
+
+        <a href="movie-inception.html" class="movie-card">
+            <img src="img/inception.png" alt="Inception">
+            <div class="overlay">
+                <div class="movie-title">Inception</div>
+            </div>
+        </a>
+
+        <a href="movie-bladerunner.html" class="movie-card">
+            <img src="img/bladerunner.png" alt="Blade Runner 2049">
+            <div class="overlay">
+                <div class="movie-title">Blade Runner 2049</div>
+            </div>
+        </a>
     </div>
-  </section>
-
-  <!-- Trending Movies Grid -->
-  <section class="trending">
-    <h3>Trending Now</h3>
-    <div class="movie-grid">
-      <div class="movie-card">
-        <a href="movie-avengers.html">
-          <img src="images/avengers.jpg" alt="Avengers">
-          <span>Avengers</span>
-        </a>
-      </div>
-      <div class="movie-card">
-        <a href="movie-inception.html">
-          <img src="images/inception.jpg" alt="Inception">
-          <span>Inception</span>
-        </a>
-      </div>
-      <div class="movie-card">
-        <a href="movie-matrix.html">
-          <img src="images/matrix.jpg" alt="The Matrix">
-          <span>The Matrix</span>
-        </a>
-      </div>
-      <div class="movie-card">
-        <a href="movie-interstellar.html">
-          <img src="images/interstellar.jpg" alt="Interstellar">
-          <span>Interstellar</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Live Search Script -->
-  <script>
-    const searchInput = document.getElementById('searchInput');
-    const movieCards = document.querySelectorAll('.movie-card');
-
-    function filterMovies() {
-      const query = searchInput.value.toLowerCase();
-      movieCards.forEach(card => {
-        const title = card.querySelector('span').textContent.toLowerCase();
-        if (title.includes(query)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    // Filter as you type
-    searchInput.addEventListener('input', filterMovies);
-
-    // Also filter when clicking the search button
-    document.querySelector('.search-btn').addEventListener('click', filterMovies);
-  </script>
 </body>
 </html>

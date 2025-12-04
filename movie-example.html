@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Movie Name</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interstellar - CINEMA X</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header>
-    <nav>
-      <div class="logo">VTV</div>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-      </ul>
-    </nav>
-  </header>
+<body class="movie-page">
+    <a href="index.html" class="back-btn">← BACK</a>
 
-  <section class="featured">
-    <h2>Movie Name</h2>
-    <div class="movie-player">
-      <!-- Replace FILE_ID with your Google Drive file ID -->
-      <iframe src="https://drive.google.com/file/d/FILE_ID/preview" 
-              width="100%" height="600" allow="autoplay">
-      </iframe>
+    <h1 style="font-size: 4rem; margin: 20px 0; background: linear-gradient(90deg, #00d4ff, #ff00aa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        INTERSTELLAR
+    </h1>
+    <p style="font-size: 1.3rem; opacity: 0.8; margin-bottom: 30px;">Directed by Christopher Nolan • 2014</p>
+
+    <div class="video-container">
+        <!-- REPLACE THIS WITH YOUR GOOGLE DRIVE VIDEO ID -->
+        <iframe 
+            src="https://drive.google.com/file/d/YOUR_VIDEO_ID_HERE/preview" 
+            allowfullscreen>
+        </iframe>
     </div>
-  </section>
+
+    <p style="max-width: 800px; text-align: center; opacity: 0.7; line-height: 1.8;">
+        A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.
+    </p>
 </body>
 </html>
